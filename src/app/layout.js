@@ -14,15 +14,20 @@ const roboto = Roboto({
   display: 'swap',
 });
 
+// Yahan metadata mein icons add kar diya hai
 export const metadata = {
   title: "Alhawat Medical Store",
   description: "Medical Equipment & Healthcare Products",
+  icons: {
+    icon: "/logo.png", // Aapka logo file path
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* Humne Roboto ko default class bana diya hai */}
       <body className={roboto.className}>
         <CartProvider>
           {children}
