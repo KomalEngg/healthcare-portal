@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Column 1: Brand Info */}
         <div className="space-y-4">
           <h3 className="text-2xl font-serif font-bold text-[#6b5b4b]">
-            ALHAWAT <span className="text-[#c89b5b]">MEDICAL</span>
+            ALHAWAT <span className="text-[#e11d48]">MEDICAL</span>
           </h3>
           <p className="text-gray-500 text-sm leading-6">
             Providing trusted healthcare solutions and quality medicines for over 15 years. 
@@ -18,53 +18,53 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 pt-2">
             {/* Social Icons Placeholder */}
-            <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#c89b5b] hover:bg-[#c89b5b] hover:text-white transition cursor-pointer">f</div>
-            <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#c89b5b] hover:bg-[#c89b5b] hover:text-white transition cursor-pointer">t</div>
-            <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#c89b5b] hover:bg-[#c89b5b] hover:text-white transition cursor-pointer">ig</div>
+            <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#e11d48] hover:bg-[#e11d48] hover:text-white transition cursor-pointer">f</div>
+            <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#e11d48] hover:bg-[#e11d48] hover:text-white transition cursor-pointer">t</div>
+            <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#e11d48] hover:bg-[#e11d48] hover:text-white transition cursor-pointer">ig</div>
           </div>
         </div>
 
         {/* Column 2: Quick Links */}
         <div>
-          <h4 className="text-lg font-serif font-bold text-[#6b5b4b] mb-6 uppercase tracking-wider">
+          <h4 className="text-lg font-serif font-bold text-[#e11d48] mb-6 uppercase tracking-wider">
             Quick Links
           </h4>
           <ul className="space-y-3 text-gray-600 text-sm">
-            <li><Link href="/about" className="hover:text-[#c89b5b] transition">About Us</Link></li>
-            <li><Link href="/healthcare" className="hover:text-[#c89b5b] transition">Healthcare</Link></li>
-            <li><Link href="/product" className="hover:text-[#c89b5b] transition">Products</Link></li>
-            <li><Link href="/services" className="hover:text-[#c89b5b] transition">Services</Link></li>
-            <li><Link href="/contact" className="hover:text-[#c89b5b] transition">Contact Us</Link></li>
+            <li><Link href="/about" className="hover:text-[#e11d48] transition">About Us</Link></li>
+            <li><Link href="/healthcare" className="hover:text-[#e11d48] transition">Healthcare</Link></li>
+            <li><Link href="/product" className="hover:text-[#e11d48] transition">Products</Link></li>
+            <li><Link href="/services" className="hover:text-[#e11d48] transition">Services</Link></li>
+            <li><Link href="/contact" className="hover:text-[#e11d48] transition">Contact Us</Link></li>
           </ul>
         </div>
 
         {/* Column 3: Categories */}
         <div>
-          <h4 className="text-lg font-serif font-bold text-[#6b5b4b] mb-6 uppercase tracking-wider">
+          <h4 className="text-lg font-serif font-bold text-[#e11d48] mb-6 uppercase tracking-wider">
             Categories
           </h4>
           <ul className="space-y-3 text-gray-600 text-sm">
-            <li><Link href="#" className="hover:text-[#c89b5b] transition">Ayurvedic Medicines</Link></li>
-            <li><Link href="#" className="hover:text-[#c89b5b] transition">Daily Healthcare</Link></li>
-            <li><Link href="#" className="hover:text-[#c89b5b] transition">Personal Care</Link></li>
-            <li><Link href="#" className="hover:text-[#c89b5b] transition">Baby Care</Link></li>
-            <li><Link href="#" className="hover:text-[#c89b5b] transition">Medical Equipment</Link></li>
+            <li><Link href="#" className="hover:text-[#e11d48] transition">Ayurvedic Medicines</Link></li>
+            <li><Link href="#" className="hover:text-[#e11d48] transition">Daily Healthcare</Link></li>
+            <li><Link href="#" className="hover:text-[#e11d48] transition">Personal Care</Link></li>
+            <li><Link href="#" className="hover:text-[#e11d48] transition">Baby Care</Link></li>
+            <li><Link href="#" className="hover:text-[#e11d48] transition">Medical Equipment</Link></li>
           </ul>
         </div>
 
         {/* Column 4: Contact & Newsletter */}
         <div>
-          <h4 className="text-lg font-serif font-bold text-[#6b5b4b] mb-6 uppercase tracking-wider">
+          <h4 className="text-lg font-serif font-bold text-[#e11d48] mb-6 uppercase tracking-wider">
             Newsletter
           </h4>
           <p className="text-gray-500 text-sm mb-4">Subscribe for latest health tips and offers.</p>
-          <div className="flex border-b border-[#c89b5b] py-2">
+          <div className="flex border-b border-[#e11d48] py-2">
             <input 
               type="email" 
               placeholder="Your Email" 
               className="bg-transparent outline-none text-sm w-full placeholder-gray-400"
             />
-            <button className="text-[#c89b5b] font-bold text-xs uppercase tracking-widest ml-2">Join</button>
+            <button className="text-[#e11d48] font-bold text-xs uppercase tracking-widest ml-2">Join</button>
           </div>
           <div className="mt-6 text-gray-500 text-sm italic">
             Email: info@alhawathshop.com

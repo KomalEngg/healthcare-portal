@@ -21,7 +21,7 @@ export default function InteractiveExplore() {
 
             <h2 className="text-[36px] md:text-[52px] font-serif uppercase tracking-tight text-black leading-[1.1]">
               Explore the World of <br/> 
-              <span className="text-[#c89b5b]">Alhawat Medical</span>
+              <span className="text-[#e11d48]">Alhawat Medical</span>
             </h2>
           </div>
 
@@ -35,7 +35,7 @@ export default function InteractiveExplore() {
               provide a seamless recovery experience for every patient.
             </p>
             
-            <p className="text-[#6b5b4b] border-l-2 border-[#c89b5b] pl-4 py-1">
+            <p className="text-[#6b5b4b] border-l-2 border-[#e11d48] pl-4 py-1">
               Our hope is to make this path to wellness easier with a little help from our{" "}
               <Link href="/healthcare" className="text-[#1f5fa9] cursor-pointer font-bold hover:underline transition">
                 Healthcare products
@@ -80,10 +80,10 @@ export default function InteractiveExplore() {
             { stat: "24/7", text: "AVAILABILITY" }
           ].map((item, idx) => (
             <div key={idx} className="space-y-3 group cursor-default">
-              <h3 className="text-[38px] md:text-[48px] font-serif text-black group-hover:text-[#c89b5b] group-hover:-translate-y-1 transition-all duration-500">
+              <h3 className="text-[38px] md:text-[48px] font-serif text-[#e11d48] group-hover:text-[#92104d] group-hover:-translate-y-1 transition-all duration-500">
                 {item.stat}
               </h3>
-              <div className="h-[1px] w-8 bg-[#c89b5b] mx-auto opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="h-[1px] w-8 bg-[#e11d48] mx-auto opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <p className="text-[9px] tracking-[0.25em] text-gray-400 uppercase font-black">
                 {item.text}
               </p>

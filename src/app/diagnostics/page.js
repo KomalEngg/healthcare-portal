@@ -97,10 +97,10 @@ export default function DiagnosticsPage() {
                   <button
                     key={num}
                     onClick={() => selectPatientCount(activeBookingId, num)}
-                    className="w-full text-left p-5 rounded-2xl border border-gray-100 hover:bg-[#fdf8f1] hover:border-[#c89b5b] transition-all group flex justify-between items-center"
+                    className="w-full text-left p-5 rounded-2xl border border-gray-100 hover:bg-[#fdf8f1] hover:border-[#e11d48] transition-all group flex justify-between items-center"
                   >
                     <span className="font-bold text-gray-700 group-hover:text-[#6b5b4b]">{num} {num === 1 ? "Patient" : "Patients"}</span>
-                    <span className="text-[#c89b5b] font-bold opacity-0 group-hover:opacity-100">Add +</span>
+                    <span className="text-[#e11d48] font-bold opacity-0 group-hover:opacity-100">Add +</span>
                   </button>
                 ))}
               </div>
@@ -111,7 +111,7 @@ export default function DiagnosticsPage() {
 
       
         {/* --- HERO SECTION WITH HEXAGON THEME (LAB TEST) --- */}
-      <section className="w-full bg-[#1a1a1a] py-24 px-6 md:px-16 text-center text-white relative overflow-hidden border-b border-[#c89b5b]/20">
+      <section className="w-full bg-[#1a1a1a] py-24 px-6 md:px-16 text-center text-white relative overflow-hidden border-b border-[#e11d48]/20">
         
         {/* Hexagon Background Pattern */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -119,7 +119,7 @@ export default function DiagnosticsPage() {
             <defs>
               <pattern id="hexagons" width="50" height="86.6" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
                 <g>
-                  <path d="M25 86.6L0 43.3 25 0l25 43.3z" fill="none" stroke="#c89b5b" strokeWidth="1"/>
+                  <path d="M25 86.6L0 43.3 25 0l25 43.3z" fill="none" stroke="#e11d48" strokeWidth="1"/>
                 </g>
               </pattern>
             </defs>
@@ -128,27 +128,27 @@ export default function DiagnosticsPage() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <span className="text-[#c89b5b] font-bold tracking-[0.4em] uppercase text-xs mb-6 block animate-fade-in">
+          <span className="text-[#e11d48] font-bold tracking-[0.4em] uppercase text-xs mb-6 block animate-fade-in">
             Accurate Results • Trusted Reports
           </span>
           
           <h1 className="text-[40px] md:text-[64px] font-serif leading-tight mb-8">
-           <span className="text-[#c89b5b]">Alhawat</span>Pathology & Lab Tests
+           <span className="text-[#e11d48]">Alhawat</span>Pathology & Lab Tests
           </h1>
           
           {/* Decorative Gradient Line */}
-          <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-[#c89b5b] to-transparent mx-auto mb-10"></div>
+          <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-[#e11d48] to-transparent mx-auto mb-10"></div>
           
           {/* Breadcrumbs */}
           <div className="flex items-center justify-center gap-3 text-sm tracking-widest uppercase font-medium text-gray-500">
-            <Link href="/" className="hover:text-[#c89b5b] transition-colors">Home</Link>
-            <span className="text-[#c89b5b]/40">•</span>
+            <Link href="/" className="hover:text-[#e11d48] transition-colors">Home</Link>
+            <span className="text-[#e11d48]/40">•</span>
             <span className="text-white">Lab Tests</span>
           </div>
         </div>
 
         {/* Bottom Accent Glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#c89b5b]/50 to-transparent"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#e11d48]/50 to-transparent"></div>
       </section>
       <main className="max-w-7xl mx-auto px-6 py-12">
 
@@ -163,7 +163,7 @@ export default function DiagnosticsPage() {
                 </div>
                 <h3 className="text-md font-serif text-[#6b5b4b] leading-tight mb-2 min-h-[40px]">{test.name}</h3>
                 <div className="flex items-center justify-center sm:justify-start gap-2 mb-6">
-                  <span className="text-[9px] font-bold text-[#c89b5b] bg-[#fdf8f1] px-2 py-1 rounded uppercase">🕒 {test.reportsIn} Report</span>
+                  <span className="text-[9px] font-bold text-[#e11d48] bg-[#fdf8f1] px-2 py-1 rounded uppercase">🕒 {test.reportsIn} Report</span>
                 </div>
               </div>
               <div>
@@ -173,7 +173,7 @@ export default function DiagnosticsPage() {
                 </div>
                 <button 
                   onClick={() => setActiveBookingId(test.id)}
-                  className={`w-full py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${selectedPatients[test.id] ? "bg-[#6b5b4b] text-white" : "bg-[#c89b5b] text-white shadow-lg hover:shadow-[#c89b5b]/30 hover:bg-[#6b5b4b]"}`}
+                  className={`w-full py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${selectedPatients[test.id] ? "bg-[#6b5b4b] text-white" : "bg-[#e11d48] text-white shadow-lg hover:shadow-[#e11d48]/30 hover:bg-[#6b5b4b]"}`}
                 >
                   {selectedPatients[test.id] ? `${selectedPatients[test.id]} Patient(s) ⌄` : 'Book Now'}
                 </button>
@@ -187,8 +187,8 @@ export default function DiagnosticsPage() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
             <h2 className="text-3xl font-serif text-[#6b5b4b]">Patient Experiences</h2>
             <div className="flex items-center gap-4 bg-[#f9f9f7] px-6 py-3 rounded-2xl">
-              <span className="text-2xl font-bold text-[#c89b5b]">4.8</span>
-              <div className="text-[#c89b5b] text-sm">★★★★★</div>
+              <span className="text-2xl font-bold text-[#e11d48]">4.8</span>
+              <div className="text-[#e11d48] text-sm">★★★★★</div>
               <span className="text-xs font-bold text-gray-400 border-l pl-4 uppercase tracking-widest">Verified</span>
             </div>
           </div>
@@ -207,7 +207,7 @@ export default function DiagnosticsPage() {
                       <p className="font-bold text-[#6b5b4b]">{rev.name}</p>
                       <p className="text-[10px] text-gray-400 uppercase tracking-widest">{rev.date}</p>
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-[#c89b5b]/10 flex items-center justify-center text-[#c89b5b]">✓</div>
+                    <div className="w-12 h-12 rounded-full bg-[#e11d48]/10 flex items-center justify-center text-[#e11d48]">✓</div>
                   </div>
                 </div>
               ))}
@@ -216,8 +216,8 @@ export default function DiagnosticsPage() {
         </section>
 
         {/* Why Trust Section */}
-        <section className="bg-[#6b5b4b] rounded-[3rem] p-10 md:p-16 text-white text-center">
-          <h2 className="text-3xl md:text-4xl font-serif mb-12 text-[#c89b5b]">Why Trust Alhawat Medical?</h2>
+        <section className="bg-[#92104d] rounded-[3rem] p-10 md:p-16 text-white text-center">
+          <h2 className="text-3xl md:text-4xl font-serif mb-12 text-[white]">Why Trust Alhawat Medical?</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { label: "NABL Certified Labs", val: "100%" },
@@ -226,7 +226,7 @@ export default function DiagnosticsPage() {
               { label: "Expert Staff", val: "7000+" },
             ].map((stat, idx) => (
               <div key={idx}>
-                <p className="text-3xl md:text-4xl font-bold text-[#c89b5b] mb-2">{stat.val}</p>
+                <p className="text-3xl md:text-4xl font-bold text-[white] mb-2">{stat.val}</p>
                 <p className="text-xs font-bold uppercase tracking-widest">{stat.label}</p>
               </div>
             ))}

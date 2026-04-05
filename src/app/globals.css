@@ -1,31 +1,54 @@
 @import "tailwindcss";
 
+/* 1. Global Variables & Color Setup */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --medical-red: #e11d48; /* Premium Medical Red */
+  
+  /* Layout.js se aane wale fonts */
+  --font-inter: "Inter", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
 }
 
+/* 2. Theme Configuration (Tailwind v4 style) */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--medical-red);
+  
+  /* Fonts mapping */
+  --font-sans: var(--font-roboto);   /* Default body font */
+  --font-heading: var(--font-inter); /* Headings font */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 3. Base Styles */
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-roboto); /* Default font Roboto set kiya */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Saari headings automatically Inter font mein hongi */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-inter);
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-/* In ko apni global.css mein add karein */
+/* 4. Custom Animations & Utilities */
 .perspective-1000 { perspective: 1000px; }
 .rotate-y-180 { transform: rotateY(180deg); }
 .preserve-3d { transform-style: preserve-3d; }
 .backface-hidden { backface-visibility: hidden; }
+
+/* Dark Mode handling (Optional: Clean setup) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff; /* Medical sites usually keep it light */
+    --foreground: #171717;
+  }
+}

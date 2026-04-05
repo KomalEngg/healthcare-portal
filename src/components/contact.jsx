@@ -15,8 +15,8 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
             
             {/* Address Card */}
-            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border-t-4 border-b-4 border-[#c89b5b] hover:shadow-xl transition-all duration-500 text-center group">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f5f5f2] text-[#c89b5b] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#6b5b4b] group-hover:text-white transition-all">
+            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border-t-4 border-b-4 border-[#e11d48] hover:shadow-xl transition-all duration-500 text-center group">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f5f5f2] text-[#e11d48] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#6b5b4b] group-hover:text-white transition-all">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
                 </svg>
@@ -29,7 +29,7 @@ const Contact = () => {
 
             {/* Phone Card */}
             <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border-t-4 border-b-4 border-[#6b5b4b] hover:shadow-xl transition-all duration-500 text-center group">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f5f5f2] text-[#c89b5b] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#c89b5b] group-hover:text-white transition-all">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f5f5f2] text-[#e11d48] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#e11d48] group-hover:text-white transition-all">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.162-5.138-3.476-6.302-6.302l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
                 </svg>
@@ -40,24 +40,24 @@ const Contact = () => {
             </div>
 
             {/* Email Card */}
-            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border-t-4 border-b-4 border-[#c89b5b] hover:shadow-xl transition-all duration-500 text-center group">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f5f5f2] text-[#c89b5b] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#6b5b4b] group-hover:text-white transition-all">
+            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border-t-4 border-b-4 border-[#e11d48] hover:shadow-xl transition-all duration-500 text-center group">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f5f5f2] text-[#e11d48] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#6b5b4b] group-hover:text-white transition-all">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
                 </svg>
               </div>
               <h4 className="text-[#6b5b4b] font-serif text-lg md:text-xl mb-3">Email Support</h4>
-              <p className="text-gray-500 text-xs md:text-sm underline underline-offset-4 decoration-[#c89b5b]/30">support@alhawatmedical.com</p>
+              <p className="text-gray-500 text-xs md:text-sm underline underline-offset-4 decoration-[#e11d48]/30">support@alhawatmedical.com</p>
             </div>
           </div>
 
           {/* --- CONTACT FORM & MAP SECTION --- */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
-            
+           
             {/* Contact Form */}
             <div className="w-full lg:w-3/5 bg-white p-6 md:p-10 rounded-3xl shadow-lg border border-gray-100">
               <div className="mb-8">
-                <h3 className="text-2xl md:text-3xl font-serif text-[#6b5b4b] mb-2 text-center md:text-left">Send Us a Message</h3>
+                <h3 className="text-2xl md:text-3xl font-serif text-[#e11d48] mb-2 text-center md:text-left">Send Us a Message</h3>
                 <p className="text-gray-400 text-xs md:text-sm text-center md:text-left">Send us your query, we will reply within 24 hours.</p>
               </div>
               
@@ -83,12 +83,12 @@ const Contact = () => {
                 }}
               >
                 {/* name attributes added for Web3Forms + placeholder color fixed */}
-                <input required name="name" type="text" placeholder="Your Name" className="w-full bg-[#fcfcf9] border border-gray-200 p-4 rounded-xl outline-none focus:border-[#c89b5b] transition-all text-sm placeholder:text-gray-400" />
-                <input required name="email" type="email" placeholder="Email Address" className="w-full bg-[#fcfcf9] border border-gray-200 p-4 rounded-xl outline-none focus:border-[#c89b5b] transition-all text-sm placeholder:text-gray-400" />
-                <input name="phone" type="text" placeholder="Phone Number" className="w-full bg-[#fcfcf9] border border-gray-200 p-4 rounded-xl outline-none focus:border-[#c89b5b] transition-all text-sm md:col-span-2 placeholder:text-gray-400" />
-                <textarea required name="message" rows="4" placeholder="How can we help you?" className="w-full bg-[#fcfcf9] border border-gray-200 p-4 rounded-xl outline-none focus:border-[#c89b5b] transition-all text-sm md:col-span-2 resize-none placeholder:text-gray-400"></textarea>
+                <input required name="name" type="text" placeholder="Your Name" className="w-full bg-[#fcfcf9] border border-gray-200 p-4 rounded-xl outline-none focus:border-[#e11d48] transition-all text-sm placeholder:text-gray-400" />
+                <input required name="email" type="email" placeholder="Email Address" className="w-full bg-[#fcfcf9] border border-gray-200 p-4 rounded-xl outline-none focus:border-[#e11d48] transition-all text-sm placeholder:text-gray-400" />
+                <input name="phone" type="text" placeholder="Phone Number" className="w-full bg-[#fcfcf9] border border-gray-200 p-4 rounded-xl outline-none focus:border-[#e11d48] transition-all text-sm md:col-span-2 placeholder:text-gray-400" />
+                <textarea required name="message" rows="4" placeholder="How can we help you?" className="w-full bg-[#fcfcf9] border border-gray-200 p-4 rounded-xl outline-none focus:border-[#e11d48] transition-all text-sm md:col-span-2 resize-none placeholder:text-gray-400"></textarea>
                 
-                <button type="submit" className="bg-[#6b5b4b] text-white px-8 md:px-10 py-4 rounded-xl font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-[#c89b5b] transition-all duration-300 w-full md:w-max shadow-md shadow-[#6b5b4b]/20">
+                <button type="submit" className="bg-[#e11d48] text-white px-8 md:px-10 py-4 rounded-xl font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-[#8b0623] transition-all duration-300 w-full md:w-max shadow-md shadow-[#6b5b4b]/20">
                   Submit Message
                 </button>
               </form>

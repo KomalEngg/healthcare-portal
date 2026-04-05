@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // ✅ Navigation ke liye
 
 const images = [
-  "https://cdn.pixabay.com/photo/2020/01/16/12/13/online-4770316_1280.jpg",
+  "https://i.pinimg.com/1200x/51/37/8e/51378e0f90e4e59cef0fd969eeb57e13.jpg",
   "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1600&auto=format&fit=crop",
 ];
 
@@ -54,7 +54,7 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 h-full flex items-center">
         <div className="max-w-xl">
           
-          <h1 className="text-[32px] md:text-[42px] leading-[1.2] md:leading-[1.3] text-[#6b5b4b] font-serif drop-shadow-md">
+          <h1 className="text-[32px] md:text-[42px] leading-[1.2] md:leading-[1.3] text-[#000000] font-serif drop-shadow-md">
             At Alhawat Medical Store, we believe that health is something that’s worth caring 
             for with the world.
           </h1>
@@ -62,9 +62,9 @@ export default function HeroSection() {
           {/* ✅ Working Search Form */}
           <form 
             onSubmit={handleSearch}
-            className="mt-6 md:mt-8 flex items-center border border-[#c89b5b] w-full max-w-[420px] h-[50px] md:h-[55px] bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow"
+            className="mt-6 md:mt-8 flex items-center border border-[#e11d48] w-full max-w-[420px] h-[50px] md:h-[55px] bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow"
           >
-            <div className="px-3 md:px-4 text-[#c89b5b]">
+            <div className="px-3 md:px-4 text-[#e11d48]">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="7" />
                 <line x1="20" y1="20" x2="16.5" y2="16.5" />
@@ -79,7 +79,7 @@ export default function HeroSection() {
             />
             <button 
               type="submit"
-              className="px-6 h-full bg-[#c89b5b] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#b0854a] transition-colors"
+              className="px-6 h-full bg-[#e11d48] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#92104d] transition-colors"
             >
               Find
             </button>
@@ -87,16 +87,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating Icon */}
-      <div className="absolute bottom-10 left-6 md:left-8 z-20 hidden sm:block">
-        <div className="w-12 h-12 md:w-14 md:h-14 bg-[#1f5fa9] rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-105 transition">
-          <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path d="M12 3v10" />
-            <path d="M8 9l4 4 4-4" />
-            <circle cx="12" cy="17" r="4" />
-          </svg>
-        </div>
-      </div>
+    
 
       {/* Dots Indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
@@ -105,7 +96,7 @@ export default function HeroSection() {
             key={i}
             onClick={() => setCurrent(i)}
             className={`w-2.5 h-2.5 md:w-3 h-3 rounded-full cursor-pointer transition ${
-              current === i ? "bg-[#c89b5b] scale-110" : "bg-gray-300"
+              current === i ? "bg-[#e11d48] scale-110" : "bg-gray-300"
             }`}
           />
         ))}

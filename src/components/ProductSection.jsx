@@ -50,12 +50,12 @@ function ProductCard({ p }) {
       </p>
 
       <div className="mt-2 flex items-center gap-2 text-sm">
-        <span className="font-bold text-[#6b5b4b]">₹{p.price}</span>
+        <span className="font-bold text-[black]">₹{p.price}</span>
         <span className="line-through text-gray-400 text-xs">₹{p.mrp}</span>
       </div>
 
       {/* Button color changed to match theme */}
-      <button className="mt-4 w-full bg-[#c89b5b] text-white py-2 rounded text-xs font-bold tracking-widest hover:bg-[#b0854a] transition uppercase">
+      <button className="mt-4 w-full bg-[#e11d48] text-white py-2 rounded text-xs font-bold tracking-widest hover:bg-[#92104d] transition uppercase">
         Add to Cart
       </button>
     </div>
@@ -67,7 +67,7 @@ function Section({ title, products }) {
     <div className="mb-16">
       
       {/* ✅ Font-Serif used for Headings */}
-      <h2 className="text-2xl md:text-3xl font-serif text-[#6b5b4b] text-center mb-8 relative">
+      <h2 className="text-2xl md:text-3xl font-serif text-[black] text-center mb-8 relative">
         <span className="relative z-10 bg-[#f7f5f2] px-4">{title}</span>
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gray-200 -z-0"></div>
       </h2>

@@ -18,7 +18,7 @@ export default function CartPage() {
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex justify-between items-end mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-800 font-serif">Your Cart</h1>
+            <h1 className="text-3xl font-bold text-[#e11d48] font-serif">Your Cart</h1>
             <p className="text-gray-500 text-sm mt-1">{cart.length} items in your basket</p>
           </div>
           {cart.length > 0 && (
@@ -36,7 +36,7 @@ export default function CartPage() {
             <div className="text-7xl mb-6">🛒</div>
             <h2 className="text-2xl font-bold text-gray-800">Your cart feels lonely.</h2>
             <p className="text-gray-500 mt-2 mb-8">Add something to make it happy!</p>
-            <Link href="/healthcare" className="bg-[#6b5b4b] text-white px-10 py-4 rounded-full font-bold hover:bg-[#c89b5b] transition-all shadow-lg">
+            <Link href="/healthcare" className="bg-[#e11d48] text-white px-10 py-4 rounded-full font-bold hover:bg-[#92104d] transition-all shadow-lg">
               Start Shopping
             </Link>
           </div>
@@ -119,7 +119,7 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <button className="w-full bg-[#6b5b4b] text-white py-4 rounded-2xl font-bold text-lg hover:bg-[#c89b5b] transition-all shadow-lg shadow-[#6b5b4b]/20 active:scale-95 uppercase tracking-widest">
+                <button className="w-full bg-[#6b5b4b] text-white py-4 rounded-2xl font-bold text-lg hover:bg-[#e11d48] transition-all shadow-lg shadow-[#6b5b4b]/20 active:scale-95 uppercase tracking-widest">
                   Checkout Now
                 </button>
                 

@@ -58,7 +58,7 @@ export default function HealthcarePage() {
       {/* 1. HERO HEADER */}
       <div className="w-full bg-[#1a1a1a] py-12 px-6 text-center text-white relative">
         <h1 className="text-3xl md:text-5xl font-serif uppercase tracking-tight">
-          Healthcare <span className="text-[#c89b5b]">Essentials</span>
+          Healthcare <span className="text-[#e11d48]">Essentials</span>
         </h1>
         <p className="text-gray-400 mt-2 text-sm uppercase tracking-[0.2em]">Quality Products • Trusted Delivery</p>
       </div>
@@ -74,7 +74,7 @@ export default function HealthcarePage() {
       {sideCategories.map((cat, i) => (
         <li key={i} className="group">
           {/* Link href ko cat.href se connect kiya */}
-          <Link href={cat.href} className="flex items-center justify-between text-gray-600 hover:text-[#c89b5b] transition-all duration-300">
+          <Link href={cat.href} className="flex items-center justify-between text-gray-600 hover:text-[#e11d48] transition-all duration-300">
             <span className="text-sm font-medium flex items-center gap-3">
               <span className="bg-gray-50 group-hover:bg-[#fdf2e9] w-8 h-8 flex items-center justify-center rounded-full transition-colors">
                 {cat.icon}
@@ -104,7 +104,7 @@ export default function HealthcarePage() {
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
                 {banners.map((_, i) => (
                   <button key={i} onClick={() => setCurrentSlide(i)} 
-                    className={`h-1.5 rounded-full transition-all duration-500 ${i === currentSlide ? "bg-[#c89b5b] w-10" : "bg-white/40 w-3"}`} />
+                    className={`h-1.5 rounded-full transition-all duration-500 ${i === currentSlide ? "bg-[#e11d48] w-10" : "bg-white/40 w-3"}`} />
                 ))}
               </div>
             </div>
@@ -112,21 +112,21 @@ export default function HealthcarePage() {
             {/* CATEGORY GRID - ALL 15 CARDS */}
             <div className="space-y-6">
               <div className="flex justify-between items-end border-b border-gray-100 pb-4">
-                <h2 className="text-2xl font-serif uppercase tracking-tight text-black">Shop by <span className="text-[#c89b5b]">Category</span></h2>
+                <h2 className="text-2xl font-serif uppercase tracking-tight text-black">Shop by <span className="text-[#e11d48]">Category</span></h2>
               </div>
 
               {/* Grid set to 3 columns on desktop to match image style */}
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                 {gridCategories.map((cat) => (
                   <Link key={cat.id} href={`/healthcare/category/${cat.id}`} 
-                    className="flex items-center justify-between p-5 bg-white rounded-2xl border border-gray-100 hover:border-[#c89b5b] hover:shadow-lg transition-all duration-400 group relative">
+                    className="flex items-center justify-between p-5 bg-white rounded-2xl border border-gray-100 hover:border-[#e11d48] hover:shadow-lg transition-all duration-400 group relative">
                     
                     <div className="flex items-center gap-4">
                       <div className="w-14 h-14 flex-shrink-0 flex items-center justify-center">
                         <img src={cat.img} alt={cat.name} className="w-12 h-12 object-contain group-hover:scale-105 transition-transform" />
                       </div>
                       <div>
-                        <h3 className="text-sm font-semibold text-gray-800 leading-tight group-hover:text-[#c89b5b] transition-colors">{cat.name}</h3>
+                        <h3 className="text-sm font-semibold text-gray-800 leading-tight group-hover:text-[#e11d48] transition-colors">{cat.name}</h3>
                         {cat.discount ? (
                           <p className="text-[10px] font-bold text-teal-600 mt-1 uppercase tracking-wider">
                             {cat.discount}
@@ -152,7 +152,7 @@ export default function HealthcarePage() {
                 <div key={idx} className="bg-[#1a1a1a] p-6 rounded-[24px] text-white flex items-center gap-4">
                   <span className="text-3xl">{item.i}</span>
                   <div>
-                    <h4 className="text-sm font-bold text-[#c89b5b] uppercase">{item.t}</h4>
+                    <h4 className="text-sm font-bold text-[#e11d48] uppercase">{item.t}</h4>
                     <p className="text-[11px] text-gray-400">{item.d}</p>
                   </div>
                 </div>

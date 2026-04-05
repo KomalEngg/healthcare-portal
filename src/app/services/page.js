@@ -104,10 +104,10 @@ function ProductCard({ p }) {
         {p.name}
       </p>
       <div className="mt-3 flex items-center gap-2">
-        <span className="font-bold text-[#c89b5b]">₹{p.price}</span>
+        <span className="font-bold text-[#e11d48]">₹{p.price}</span>
         <span className="line-through text-gray-400 text-xs">₹{p.mrp}</span>
       </div>
-      <button className="mt-5 w-full bg-[#6b5b4b] text-white py-2.5 rounded-sm text-[10px] font-bold tracking-[0.2em] hover:bg-[#c89b5b] transition-colors uppercase">
+      <button className="mt-5 w-full bg-[#e11d48] text-white py-2.5 rounded-sm text-[10px] font-bold tracking-[0.2em] hover:bg-[#92104d] transition-colors uppercase">
         Add to Cart
       </button>
     </div>
@@ -121,10 +121,10 @@ function ServiceCard({ service }) {
     <div 
       className={`group p-10 border border-gray-300 transition-all duration-500 rounded-3xl bg-white 
       hover:shadow-[0_20px_50px_rgba(200,155,91,0.15)] hover:-translate-y-4 transform cursor-pointer
-      ${isExpanded ? 'bg-[#fdf8f1] border-[#c89b5b]/30' : 'hover:bg-[#fcfcf9]'}`}
+      ${isExpanded ? 'bg-[#fdf8f1] border-[#e11d48]/30' : 'hover:bg-[#fcfcf9]'}`}
     >
-      <div className="w-20 h-20 rounded-2xl bg-[#f5f5f2] text-[#c89b5b] flex items-center justify-center mb-8 
-        group-hover:bg-[#c89b5b] group-hover:text-white group-hover:scale-110 transition-all duration-500 shadow-sm">
+      <div className="w-20 h-20 rounded-2xl bg-[#f5f5f2] text-[#e11d48] flex items-center justify-center mb-8 
+        group-hover:bg-[#e11d48] group-hover:text-white group-hover:scale-110 transition-all duration-500 shadow-sm">
         {service.icon}
       </div>
 
@@ -141,12 +141,12 @@ function ServiceCard({ service }) {
           e.stopPropagation(); 
           setIsExpanded(!isExpanded);
         }}
-        className="text-[#c89b5b] font-bold text-[11px] uppercase tracking-[0.2em] border-b-2 border-[#c89b5b]/20 hover:border-[#6b5b4b] transition-all pb-1"
+        className="text-[#e11d48] font-bold text-[11px] uppercase tracking-[0.2em] border-b-2 border-[#e11d48]/20 hover:border-[#6b5b4b] transition-all pb-1"
       >
         {isExpanded ? "Read Less ▲" : "Read More ▼"}
       </button>
 
-      <div className="mt-8 w-0 h-1 bg-[#c89b5b] group-hover:w-full transition-all duration-700"></div>
+      <div className="mt-8 w-0 h-1 bg-[#e11d48] group-hover:w-full transition-all duration-700"></div>
     </div>
   );
 }
@@ -159,7 +159,7 @@ export default function ServicesPage() {
     <Navbar/>
       
       {/* --- UPDATED HERO SECTION WITH HEXAGON THEME --- */}
-<section className="w-full bg-[#1a1a1a] py-24 px-6 md:px-16 text-center text-white relative overflow-hidden border-b border-[#c89b5b]/20">
+<section className="w-full bg-[#1a1a1a] py-24 px-6 md:px-16 text-center text-white relative overflow-hidden border-b border-[#e11d48]/20">
   
   {/* Decorative Hexagon Background Pattern */}
   <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -167,7 +167,7 @@ export default function ServicesPage() {
       <defs>
         <pattern id="hexagons" width="50" height="86.6" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
           <g>
-            <path d="M25 86.6L0 43.3 25 0l25 43.3z" fill="none" stroke="#c89b5b" strokeWidth="1"/>
+            <path d="M25 86.6L0 43.3 25 0l25 43.3z" fill="none" stroke="#e11d48" strokeWidth="1"/>
           </g>
         </pattern>
       </defs>
@@ -177,18 +177,18 @@ export default function ServicesPage() {
 
   <div className="max-w-7xl mx-auto relative z-10">
     {/* Top Label */}
-    <span className="text-[#c89b5b] font-bold tracking-[0.4em] uppercase text-xs mb-6 block animate-fade-in">
+    <span className="text-[#e11d48] font-bold tracking-[0.4em] uppercase text-xs mb-6 block animate-fade-in">
       Premium Care & Trust
     </span>
 
     {/* Main Title */}
     <h1 className="text-[40px] md:text-[64px] font-serif leading-tight mb-8">
       Healthcare Services <br /> 
-      <span className="italic text-[#c89b5b] font-light">&</span> Medical Excellence
+      <span className="italic text-[#e11d48] font-light">&</span> Medical Excellence
     </h1>
 
     {/* Decorative Divider */}
-    <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-[#c89b5b] to-transparent mx-auto mb-10"></div>
+    <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-[#e11d48] to-transparent mx-auto mb-10"></div>
 
     {/* Description */}
     <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed mb-12">
@@ -198,14 +198,14 @@ export default function ServicesPage() {
 
     {/* Breadcrumbs or Navigation Links */}
     <div className="flex items-center justify-center gap-3 text-sm tracking-widest uppercase font-medium text-gray-500">
-      <Link href="/" className="hover:text-[#c89b5b] transition-colors">Home</Link>
-      <span className="text-[#c89b5b]/40">•</span>
+      <Link href="/" className="hover:text-[#e11d48] transition-colors">Home</Link>
+      <span className="text-[#e11d48]/40">•</span>
       <span className="text-white">Services</span>
     </div>
   </div>
 
   {/* Subtle Bottom Glow */}
-  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#c89b5b]/50 to-transparent"></div>
+  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#e11d48]/50 to-transparent"></div>
 </section>
 
       {/* --- SERVICES SECTION --- */}
@@ -223,9 +223,9 @@ export default function ServicesPage() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div>
               <h2 className="text-3xl font-serif text-[#6b5b4b]">Our Hot Sellers</h2>
-              <p className="text-[#c89b5b] text-sm font-medium mt-1">Most trusted medicines by our customers</p>
+              <p className="text-[#e11d48] text-sm font-medium mt-1">Most trusted medicines by our customers</p>
             </div>
-            <Link href="/products" className="text-[#6b5b4b] font-bold text-xs uppercase tracking-widest border-b border-[#6b5b4b] pb-1 hover:text-[#c89b5b] hover:border-[#c89b5b] transition-all">
+            <Link href="/products" className="text-[#6b5b4b] font-bold text-xs uppercase tracking-widest border-b border-[#6b5b4b] pb-1 hover:text-[#e11d48] hover:border-[#e11d48] transition-all">
               View All Products
             </Link>
           </div>
@@ -240,16 +240,16 @@ export default function ServicesPage() {
 
       {/* --- PROMOTIONAL BANNER --- */}
       <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto bg-[#6b5b4b] rounded-sm overflow-hidden flex flex-col lg:flex-row items-center shadow-2xl">
+        <div className="max-w-7xl mx-auto bg-[#92104d] rounded-sm overflow-hidden flex flex-col lg:flex-row items-center shadow-2xl">
           <div className="flex-1 p-12 md:p-20">
-            <span className="text-[#c89b5b] font-bold tracking-widest text-xs uppercase mb-4 block">Special Offer</span>
+            <span className="text-[white] font-bold tracking-widest text-xs uppercase mb-4 block">Special Offer</span>
             <h2 className="text-3xl md:text-5xl font-serif text-white leading-tight mb-6">
               Get 20% Off on your first Prescription Refill
             </h2>
             <p className="text-gray-300 mb-10 text-lg">
               Experience the fastest medicine delivery in Moradabad with our dedicated team.
             </p>
-            <button className="bg-[#c89b5b] text-white px-10 py-4 font-bold text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-[#6b5b4b] transition-all duration-300">
+            <button className="bg-[#e11d48] text-white px-10 py-4 font-bold text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-[#6b5b4b] transition-all duration-300">
               Claim Discount
             </button>
           </div>
@@ -264,10 +264,10 @@ export default function ServicesPage() {
       </section>
 
       {/* --- WHY TRUST US --- */}
-      <section className="bg-[#676562] py-20 px-6">
+      <section className="bg-[#92104d] py-20 px-6">
         <div className="max-w-7xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-serif text-white">Why Choose Alhawat Medical?</h2>
-          <div className="w-16 h-[1px] bg-[#c89b5b] mx-auto mt-4"></div>
+          <div className="w-16 h-[1px] bg-[#e11d48] mx-auto mt-4"></div>
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -277,7 +277,7 @@ export default function ServicesPage() {
              { t: "Secure Pay", d: "Encrypted Transactions" }
             ].map((item, i) => (
               <div key={i} className="p-8 border border-gray-200 bg-white text-center  transition-colors shadow-sm">
-                 <div className="text-[#c89b5b] text-xl mb-3 font-bold ">0{i+1}</div>
+                 <div className="text-[#e11d48] text-xl mb-3 font-bold ">0{i+1}</div>
                  <h4 className="text-[#6b5b4b] font-bold mb-2">{item.t}</h4>
                  <p className="text-gray-500 text-xs">{item.d}</p>
               </div>
