@@ -128,7 +128,7 @@ export default function HealthcarePage() {
                       <div>
                         <h3 className="text-sm font-semibold text-gray-800 leading-tight group-hover:text-[#e11d48] transition-colors">{cat.name}</h3>
                         {cat.discount ? (
-                          <p className="text-[10px] font-bold text-teal-600 mt-1 uppercase tracking-wider">
+                          <p className="text-[10px] font-bold text-[#e11d48] mt-1 uppercase tracking-wider">
                             {cat.discount}
                           </p>
                         ) : (

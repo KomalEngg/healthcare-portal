@@ -76,7 +76,7 @@ export default function CategoryDetailPage() {
       <div className="min-h-screen flex items-center justify-center bg-[#f4f7f4]">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-800">Category Not Found</h1>
-          <Link href="/healthcare" className="text-teal-600 underline mt-4 block">Back to Healthcare</Link>
+          <Link href="/healthcare" className="text-[#e11d48] underline mt-4 block">Back to Healthcare</Link>
         </div>
       </div>
     );
@@ -89,9 +89,9 @@ export default function CategoryDetailPage() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
         {/* Breadcrumbs */}
         <nav className="text-[11px] text-gray-500 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-teal-600 transition">Home</Link>
+          <Link href="/" className="hover:text-[#e11d48] transition">Home</Link>
           <span>/</span>
-          <Link href="/healthcare" className="hover:text-teal-600 transition">Healthcare</Link>
+          <Link href="/healthcare" className="hover:text-[#e11d48]transition">Healthcare</Link>
           <span>/</span>
           <span className="text-gray-800 font-semibold">{data.title}</span>
         </nav>
@@ -106,8 +106,8 @@ export default function CategoryDetailPage() {
               <div className="mb-8">
                 <p className="text-[13px] font-bold text-gray-700 mb-4 uppercase tracking-wider">Categories</p>
                 <ul className="space-y-3 text-[13px] text-gray-600">
-                  <li className="text-teal-600 font-bold cursor-pointer">All {data.title}</li>
-                  <li className="hover:text-teal-600 cursor-pointer transition">New Arrivals</li>
+                  <li className="text-[#e11d48] font-bold cursor-pointer">All {data.title}</li>
+                  <li className="hover:text-[#e11d48] cursor-pointer transition">New Arrivals</li>
                 </ul>
               </div>
 
@@ -120,9 +120,9 @@ export default function CategoryDetailPage() {
                         type="checkbox" 
                         checked={selectedPriceRanges.includes(range)}
                         onChange={() => handlePriceChange(range)}
-                        className="w-4 h-4 accent-teal-700 cursor-pointer" 
+                        className="w-4 h-4 accent-[#e11d48] cursor-pointer" 
                       />
-                      <span className={`${selectedPriceRanges.includes(range) ? "text-teal-600 font-bold" : ""} group-hover:text-teal-600 transition`}>
+                      <span className={`${selectedPriceRanges.includes(range) ? "text-[#e11d48] font-bold" : ""} group-hover:text-[#e11d48] transition`}>
                         {range}
                       </span>
                     </label>
@@ -175,7 +175,7 @@ export default function CategoryDetailPage() {
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="text-[13px] font-semibold text-gray-800 line-clamp-2 leading-tight mb-1 group-hover:text-teal-600 transition-colors">
+                    <h3 className="text-[13px] font-semibold text-gray-800 line-clamp-2 leading-tight mb-1 group-hover:text-[#e11d48] transition-colors">
                       {product.name}
                     </h3>
                     <p className="text-[10px] text-gray-400 mb-3 uppercase font-medium">{product.brand}</p>
@@ -188,7 +188,7 @@ export default function CategoryDetailPage() {
                   {/* ✅ Working Add to Cart Button */}
                   <button 
                     onClick={() => addToCart(product)}
-                    className="w-full py-2.5 bg-white border-2 border-teal-800 text-teal-800 rounded-lg text-xs font-bold hover:bg-teal-800 hover:text-white transition-all duration-300 uppercase tracking-wider"
+                    className="w-full py-2.5 bg-white border-2 border-[#e11d48] text-[#e11d48] rounded-lg text-xs font-bold hover:bg-[#e11d48] hover:text-white transition-all duration-300 uppercase tracking-wider"
                   >
                     Add to Cart
                   </button>

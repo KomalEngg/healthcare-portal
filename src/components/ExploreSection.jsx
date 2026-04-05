@@ -37,7 +37,7 @@ export default function InteractiveExplore() {
             
             <p className="text-[#6b5b4b] border-l-2 border-[#e11d48] pl-4 py-1">
               Our hope is to make this path to wellness easier with a little help from our{" "}
-              <Link href="/healthcare" className="text-[#1f5fa9] cursor-pointer font-bold hover:underline transition">
+              <Link href="/healthcare" className="text-[#e11d48] cursor-pointer font-bold hover:underline transition">
                 Healthcare products
               </Link>.
             </p>
