@@ -43,7 +43,7 @@ export default function Navbar() {
       className={`w-full sticky top-0 z-50 transition-all duration-300 ${
         scrolled 
         ? "bg-white/95 backdrop-blur-md py-1 shadow-md border-b border-red-50" // Scroll par padding kam (py-1)
-        : "bg-white py-3 border-b border-gray-100" // Normal state mein padding zyada (py-3)
+        : "bg-white py-2 border-b border-gray-100" // Normal state mein padding zyada (py-3)
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8">
@@ -53,7 +53,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center">
             {/* Logo height transitions: Normal (h-14) -> Scrolled (h-10) */}
             <div className={`relative transition-all duration-300 flex items-center ${
-              scrolled ? "h-10" : "h-14"
+              scrolled ? "h-10" : "h-11"
             }`}>
               <img 
                 src="/logo.png" 
