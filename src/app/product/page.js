@@ -3,8 +3,9 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import React, { useState, useMemo, useRef } from 'react';
+import { useCart } from "@/context/CartContext"; // ✅ 1. Cart Context Import kiya
 
-// 1. PRODUCT DATA (Moved here to ensure it's defined for the component)
+// 1. PRODUCT DATA
 const allProducts = [
   { id: 1, name: "Digital Blood Pressure Monitor", price: 2499, oldPrice: 3200, category: "Monitoring Equipment", image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?q=80&w=400", tag: "Best Seller", date: "2024-01-01" },
   { id: 2, name: "Infrared Forehead Thermometer", price: 1200, oldPrice: 1800, category: "Diagnostic Equipment", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400", tag: "Trending", date: "2024-02-01" },
@@ -32,12 +33,12 @@ export default function ProductPage() {
   const [priceRange, setPriceRange] = useState(100000);
   const [sortBy, setSortBy] = useState("Newest");
   const [currentPage, setCurrentPage] = useState(1);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Mobile Sidebar State
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
+  const { addToCart } = useCart(); // ✅ 2. addToCart function nikala context se
   const productsPerPage = 9;
   const scrollRef = useRef(null);
 
-  // --- SLIDER LOGIC ---
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
@@ -46,7 +47,6 @@ export default function ProductPage() {
     }
   };
 
-  // --- FILTERING LOGIC ---
   const filteredProducts = useMemo(() => {
     let temp = [...allProducts];
     if (selectedCategory !== "All Products") {
@@ -64,17 +64,30 @@ export default function ProductPage() {
   const currentProducts = filteredProducts.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
+  // ✅ 3. Ek custom function jo product format ko match kare context se
+  const handleAddToCart = (product) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      mrp: product.oldPrice, // mapping oldPrice to mrp for consistency
+      img: product.image,
+      brand: product.category,
+      quantity: 1
+    });
+  };
+
   return (
     <div className="bg-[#fcfcf9] min-h-screen">
       <Navbar />
 
-      {/* --- HERO HEADER --- */}
+      {/* HERO HEADER */}
       <section className="bg-[#1a1a1a] py-20 px-6 text-center border-b border-[#e11d48]/20">
         <h1 className="text-4xl md:text-6xl font-serif text-white mb-4 tracking-tight">Alhawat Medical Catalog</h1>
         <p className="text-[#e11d48] tracking-[0.3em] uppercase text-xs font-bold">High Precision Instruments & Healthcare Supplies</p>
       </section>
 
-      {/* --- MOBILE FILTER TOGGLE (Hamburger Style) --- */}
+      {/* MOBILE FILTER TOGGLE */}
       <div className="lg:hidden sticky top-0 z-40 bg-[#fcfcf9]/90 backdrop-blur-md px-6 py-4 border-b border-gray-100">
         <button 
           onClick={() => setIsSidebarOpen(true)}
@@ -87,46 +100,15 @@ export default function ProductPage() {
         </button>
       </div>
 
-      {/* --- FEATURED SLIDER --- */}
-      <div className="max-w-7xl mx-auto px-6 mt-12 mb-16 relative z-10">
-        <div className="flex items-center justify-between mb-6 bg-white/40 backdrop-blur-md p-5 rounded-3xl shadow-xl shadow-[#6b5b4b]/5 border border-gray-100">
-           <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#6b5b4b] flex items-center gap-2">
-             <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> Trending Medical Supplies
-           </h3>
-           <div className="flex gap-3">
-              <button onClick={() => scroll('left')} className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-[#6b5b4b] hover:text-white transition-all shadow-sm">←</button>
-              <button onClick={() => scroll('right')} className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-[#6b5b4b] hover:text-white transition-all shadow-sm">→</button>
-           </div>
-        </div>
-        
-        <div ref={scrollRef} className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4 px-2">
-          {allProducts.slice(0, 8).map((p) => (
-            <div key={p.id} className="min-w-[280px] md:min-w-[300px] bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-50 group hover:-translate-y-1 transition-transform duration-300">
-              <div className="h-44 relative overflow-hidden">
-                <img src={p.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={p.name} />
-                <div className="absolute top-4 right-4 bg-[#e11d48] text-white text-[9px] px-3 py-1 rounded-full font-bold">₹{p.price}</div>
-              </div>
-              <div className="p-5">
-                <h4 className="font-serif text-[#6b5b4b] text-sm truncate">{p.name}</h4>
-                <p className="text-[9px] uppercase tracking-widest text-gray-400 mt-1">{p.category}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto py-8 px-6">
         <div className="flex flex-col lg:flex-row gap-12">
           
-          {/* --- SIDEBAR DRAWER --- */}
+          {/* SIDEBAR */}
           <aside className={`
             fixed inset-0 z-50 transition-all duration-500 lg:relative lg:inset-auto lg:z-0 lg:w-1/4
             ${isSidebarOpen ? "visible opacity-100" : "invisible opacity-0 lg:visible lg:opacity-100"}
           `}>
-            {/* Dark Backdrop */}
             <div className="absolute inset-0 bg-[#1a1a1a]/60 backdrop-blur-sm lg:hidden" onClick={() => setIsSidebarOpen(false)}></div>
-            
-            {/* Drawer Content */}
             <div className={`
               relative bg-white h-full w-4/5 max-w-sm lg:w-full lg:h-auto p-8 overflow-y-auto lg:rounded-[2.5rem] shadow-2xl lg:shadow-xl border border-gray-100 transition-transform duration-500
               ${isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
@@ -175,7 +157,7 @@ export default function ProductPage() {
             </div>
           </aside>
 
-          {/* --- MAIN GRID --- */}
+          {/* MAIN GRID */}
           <div className="lg:w-3/4">
             <div className="flex flex-col md:flex-row justify-between items-center mb-10 bg-white px-8 py-5 rounded-[2rem] shadow-sm border border-gray-100">
               <div>
@@ -215,7 +197,11 @@ export default function ProductPage() {
                           <p className="text-2xl font-bold text-[#e11d48]">₹{product.price.toLocaleString()}</p>
                           <p className="text-[10px] text-gray-400 line-through">₹{product.oldPrice.toLocaleString()}</p>
                         </div>
-                        <button className="w-12 h-12 bg-[#e11d48] text-white rounded-2xl flex items-center justify-center hover:bg-[#92102d] transition-all duration-300 shadow-lg shadow-[#6b5b4b]/20">
+                        {/* ✅ 4. Add to Cart Button Functionality */}
+                        <button 
+                          onClick={() => handleAddToCart(product)}
+                          className="w-12 h-12 bg-[#e11d48] text-white rounded-2xl flex items-center justify-center hover:bg-[#92102d] transition-all duration-300 shadow-lg shadow-[#6b5b4b]/20 active:scale-90"
+                        >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"/></svg>
                         </button>
                       </div>
@@ -230,7 +216,7 @@ export default function ProductPage() {
               </div>
             )}
 
-            {/* --- PAGINATION --- */}
+            {/* PAGINATION */}
             {totalPages > 1 && (
               <div className="mt-20 flex justify-center items-center gap-3">
                 {[...Array(totalPages)].map((_, i) => (
