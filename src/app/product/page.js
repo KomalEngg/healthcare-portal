@@ -3,9 +3,9 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import React, { useState, useMemo, useRef } from 'react';
-import { useCart } from "@/context/CartContext"; // ✅ 1. Cart Context Import kiya
+import { useCart } from "@/context/CartContext"; // ✅ Cart Context Import kiya
 
-// 1. PRODUCT DATA
+// 1. PRODUCT DATA (Moved here to ensure it's defined for the component)
 const allProducts = [
   { id: 1, name: "Digital Blood Pressure Monitor", price: 2499, oldPrice: 3200, category: "Monitoring Equipment", image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?q=80&w=400", tag: "Best Seller", date: "2024-01-01" },
   { id: 2, name: "Infrared Forehead Thermometer", price: 1200, oldPrice: 1800, category: "Diagnostic Equipment", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400", tag: "Trending", date: "2024-02-01" },
@@ -33,12 +33,13 @@ export default function ProductPage() {
   const [priceRange, setPriceRange] = useState(100000);
   const [sortBy, setSortBy] = useState("Newest");
   const [currentPage, setCurrentPage] = useState(1);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Mobile Sidebar State
   
-  const { addToCart } = useCart(); // ✅ 2. addToCart function nikala context se
+  const { addToCart } = useCart(); // ✅ addToCart function nikala context se
   const productsPerPage = 9;
   const scrollRef = useRef(null);
 
+  // --- SLIDER LOGIC ---
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
@@ -47,6 +48,7 @@ export default function ProductPage() {
     }
   };
 
+  // --- FILTERING LOGIC ---
   const filteredProducts = useMemo(() => {
     let temp = [...allProducts];
     if (selectedCategory !== "All Products") {
@@ -64,13 +66,13 @@ export default function ProductPage() {
   const currentProducts = filteredProducts.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // ✅ 3. Ek custom function jo product format ko match kare context se
+  // ✅ Function jo product format ko match kare context se
   const handleAddToCart = (product) => {
     addToCart({
       id: product.id,
       name: product.name,
       price: product.price,
-      mrp: product.oldPrice, // mapping oldPrice to mrp for consistency
+      mrp: product.oldPrice, 
       img: product.image,
       brand: product.category,
       quantity: 1
@@ -81,53 +83,53 @@ export default function ProductPage() {
     <div className="bg-[#fcfcf9] min-h-screen">
       <Navbar />
 
-      {/* HERO HEADER */}
-      <section className="bg-[#1a1a1a] py-20 px-6 text-center border-b border-[#e11d48]/20">
-        <h1 className="text-4xl md:text-6xl font-serif text-white mb-4 tracking-tight">Alhawat Medical Catalog</h1>
-        <p className="text-[#e11d48] tracking-[0.3em] uppercase text-xs font-bold">High Precision Instruments & Healthcare Supplies</p>
+      {/* --- HERO HEADER --- */}
+      <section className="bg-[#1a1a1a] py-12 md:py-16 px-6 text-center border-b border-[#e11d48]/20">
+        <h1 className="text-3xl md:text-5xl font-serif text-white mb-4 tracking-tight">Alhawat Medical Catalog</h1>
+        <p className="text-[#e11d48] tracking-[0.3em] uppercase text-[10px] font-bold">High Precision Instruments & Healthcare Supplies</p>
       </section>
 
-      {/* MOBILE FILTER TOGGLE */}
+      {/* --- MOBILE FILTER TOGGLE --- */}
       <div className="lg:hidden sticky top-0 z-40 bg-[#fcfcf9]/90 backdrop-blur-md px-6 py-4 border-b border-gray-100">
         <button 
           onClick={() => setIsSidebarOpen(true)}
-          className="w-full flex items-center justify-center gap-3 bg-[#e11d48] text-white py-4 rounded-2xl font-bold text-xs uppercase tracking-widest shadow-lg active:scale-95 transition-transform"
+          className="w-full flex items-center justify-center gap-3 bg-[#e11d48] text-white py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest shadow-lg active:scale-95 transition-transform"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
           </svg>
-          Refine Catalog & Filters
+          Refine Catalog
         </button>
       </div>
 
-      <div className="max-w-7xl mx-auto py-8 px-6">
-        <div className="flex flex-col lg:flex-row gap-12">
+      <div className="max-w-7xl mx-auto py-8 px-4 md:px-6">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-10">
           
-          {/* SIDEBAR */}
+          {/* --- SIDEBAR --- */}
           <aside className={`
-            fixed inset-0 z-50 transition-all duration-500 lg:relative lg:inset-auto lg:z-0 lg:w-1/4
+            fixed inset-0 z-50 transition-all duration-500 lg:relative lg:inset-auto lg:z-0 lg:w-1/5
             ${isSidebarOpen ? "visible opacity-100" : "invisible opacity-0 lg:visible lg:opacity-100"}
           `}>
             <div className="absolute inset-0 bg-[#1a1a1a]/60 backdrop-blur-sm lg:hidden" onClick={() => setIsSidebarOpen(false)}></div>
             <div className={`
-              relative bg-white h-full w-4/5 max-w-sm lg:w-full lg:h-auto p-8 overflow-y-auto lg:rounded-[2.5rem] shadow-2xl lg:shadow-xl border border-gray-100 transition-transform duration-500
+              relative bg-white h-full w-4/5 max-w-[280px] lg:w-full lg:h-auto p-6 overflow-y-auto lg:rounded-3xl shadow-2xl lg:shadow-xl border border-gray-100 transition-transform duration-500
               ${isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
             `}>
-              <div className="flex justify-between items-center mb-8 border-b pb-4">
-                <h3 className="text-xl font-serif text-[#6b5b4b]">Refine Catalog</h3>
+              <div className="flex justify-between items-center mb-6 border-b pb-4">
+                <h3 className="text-lg font-serif text-[#6b5b4b]">Refine</h3>
                 <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden p-2 text-gray-400 hover:text-red-500">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
               </div>
               
-              <div className="mb-10">
-                <label className="text-[10px] font-black uppercase tracking-widest text-[#e11d48] mb-4 block">Categories</label>
-                <div className="flex flex-col gap-1">
+              <div className="mb-8">
+                <label className="text-[9px] font-black uppercase tracking-widest text-[#e11d48] mb-4 block">Categories</label>
+                <div className="flex flex-col gap-0.5">
                   {categories.map(cat => (
                     <button 
                       key={cat}
                       onClick={() => { setSelectedCategory(cat); setCurrentPage(1); if(window.innerWidth < 1024) setIsSidebarOpen(false); }}
-                      className={`text-left px-4 py-2.5 rounded-xl text-sm transition-all ${selectedCategory === cat ? "bg-[#e11d48] text-white font-bold" : "text-gray-500 hover:bg-[#fdf8f1] hover:text-[#92102d]"}`}
+                      className={`text-left px-3 py-2 rounded-lg text-xs transition-all ${selectedCategory === cat ? "bg-[#e11d48] text-white font-bold" : "text-gray-500 hover:bg-[#fdf8f1] hover:text-[#92102d]"}`}
                     >
                       {cat}
                     </button>
@@ -137,35 +139,35 @@ export default function ProductPage() {
 
               <div className="mb-8">
                 <div className="flex justify-between items-end mb-4">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-[#e11d48]">Max Budget</label>
-                  <span className="text-lg font-serif text-[#e11d48]">₹{priceRange.toLocaleString()}</span>
+                  <label className="text-[9px] font-black uppercase tracking-widest text-[#e11d48]">Budget</label>
+                  <span className="text-sm font-serif text-[#e11d48]">₹{priceRange.toLocaleString()}</span>
                 </div>
                 <input 
                   type="range" min="500" max="100000" step="500"
                   value={priceRange}
                   onChange={(e) => { setPriceRange(Number(e.target.value)); setCurrentPage(1); }}
-                  className="w-full h-1.5 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-[#e11d48]" 
+                  className="w-full h-1 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-[#e11d48]" 
                 />
               </div>
 
               <button 
                 onClick={() => { setSelectedCategory("All Products"); setPriceRange(100000); setIsSidebarOpen(false); }}
-                className="w-full py-4 text-[10px] font-black uppercase tracking-[0.2em] text-red-400 hover:text-red-600 transition-colors border-t mt-4"
+                className="w-full py-4 text-[9px] font-black uppercase tracking-[0.2em] text-red-400 hover:text-red-600 transition-colors border-t mt-4"
               >
-                Reset All Filters
+                Reset Filters
               </button>
             </div>
           </aside>
 
-          {/* MAIN GRID */}
-          <div className="lg:w-3/4">
-            <div className="flex flex-col md:flex-row justify-between items-center mb-10 bg-white px-8 py-5 rounded-[2rem] shadow-sm border border-gray-100">
+          {/* --- MAIN GRID --- */}
+          <div className="lg:w-4/5">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-6 bg-white px-6 py-4 rounded-2xl shadow-sm border border-gray-100">
               <div>
-                <h2 className="text-2xl font-serif text-[#e11d48]">{selectedCategory}</h2>
-                <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-1">{filteredProducts.length} items found</p>
+                <h2 className="text-xl font-serif text-[#e11d48]">{selectedCategory}</h2>
+                <p className="text-[9px] text-gray-400 uppercase tracking-widest mt-1">{filteredProducts.length} items</p>
               </div>
               <select 
-                className="mt-4 md:mt-0 bg-[#fcfcf9] px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest text-[#e11d48] outline-none ring-1 ring-gray-100 cursor-pointer hover:ring-[#e11d48]/30 transition-all"
+                className="mt-3 md:mt-0 bg-[#fcfcf9] px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-[#e11d48] outline-none ring-1 ring-gray-100 cursor-pointer"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
               >
@@ -176,33 +178,37 @@ export default function ProductPage() {
             </div>
 
             {currentProducts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6">
                 {currentProducts.map((product) => (
-                  <div key={product.id} className="group bg-white rounded-[2.5rem] border border-gray-100 hover:border-[#e11d48]/30 hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
-                    <div className="relative aspect-[4/5] overflow-hidden bg-[#f9f9f7]">
-                      <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                      <div className="absolute top-6 left-6">
-                        <span className="bg-white/90 backdrop-blur-md text-[#6b5b4b] text-[9px] px-4 py-1.5 rounded-full uppercase font-black tracking-widest shadow-sm">
-                          {product.tag}
-                        </span>
-                      </div>
-                    </div>
+                  <div key={product.id} className="group bg-white rounded-2xl border border-gray-50 hover:border-[#e11d48]/20 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col">
+      {/* --- IMAGE CONTAINER (Line 148 ke aas-paas) --- */}
+<div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f9f9f7]">
+  <img 
+    src={product.image} 
+    alt={product.name} 
+    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+  />
+  <div className="absolute top-2 right-2 z-10">
+    <span className="bg-white/90 backdrop-blur-md text-[#6b5b4b] text-[7px] px-2 py-0.5 rounded-full uppercase font-black tracking-widest shadow-sm">
+      {product.tag}
+    </span>
+  </div>
+</div>
                     
-                    <div className="p-8 flex flex-col flex-grow">
-                      <span className="text-[10px] text-[#000000] font-bold uppercase tracking-[0.2em] mb-2">{product.category}</span>
-                      <h3 className="text-lg font-serif text-[#000000] mb-4 leading-snug group-hover:text-[#e11d48] transition-colors h-14 overflow-hidden">{product.name}</h3>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <span className="text-[8px] text-[#e11d48] font-bold uppercase tracking-widest mb-1">{product.category}</span>
+                      <h3 className="text-xs font-serif text-gray-800 mb-3 leading-snug h-8 overflow-hidden line-clamp-2">{product.name}</h3>
                       
-                      <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                      <div className="mt-auto pt-3 border-t border-gray-50 flex items-center justify-between">
                         <div>
-                          <p className="text-2xl font-bold text-[#e11d48]">₹{product.price.toLocaleString()}</p>
-                          <p className="text-[10px] text-gray-400 line-through">₹{product.oldPrice.toLocaleString()}</p>
+                          <p className="text-sm font-bold text-[#e11d48]">₹{product.price.toLocaleString()}</p>
+                          <p className="text-[8px] text-gray-400 line-through">₹{product.oldPrice.toLocaleString()}</p>
                         </div>
-                        {/* ✅ 4. Add to Cart Button Functionality */}
                         <button 
                           onClick={() => handleAddToCart(product)}
-                          className="w-12 h-12 bg-[#e11d48] text-white rounded-2xl flex items-center justify-center hover:bg-[#92102d] transition-all duration-300 shadow-lg shadow-[#6b5b4b]/20 active:scale-90"
+                          className="w-8 h-8 bg-[#e11d48] text-white rounded-lg flex items-center justify-center hover:bg-[#92102d] transition-all active:scale-90 shadow-md"
                         >
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"/></svg>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4"/></svg>
                         </button>
                       </div>
                     </div>
@@ -210,20 +216,20 @@ export default function ProductPage() {
                 ))}
               </div>
             ) : (
-              <div className="py-32 text-center bg-white rounded-[3rem] border-2 border-dashed border-gray-100">
-                <p className="text-gray-400 font-serif text-xl">No products match your criteria.</p>
-                <button onClick={() => {setPriceRange(100000); setSelectedCategory("All Products")}} className="mt-6 px-8 py-3 bg-[#92102d] text-white rounded-full text-xs font-bold uppercase tracking-widest">Reset Filters</button>
+              <div className="py-20 text-center bg-white rounded-3xl border-2 border-dashed border-gray-100">
+                <p className="text-gray-400 font-serif text-lg">No products found.</p>
+                <button onClick={() => {setPriceRange(100000); setSelectedCategory("All Products")}} className="mt-4 px-6 py-2 bg-[#92102d] text-white rounded-full text-[10px] font-bold uppercase tracking-widest">Reset</button>
               </div>
             )}
 
-            {/* PAGINATION */}
+            {/* --- PAGINATION --- */}
             {totalPages > 1 && (
-              <div className="mt-20 flex justify-center items-center gap-3">
+              <div className="mt-12 flex justify-center items-center gap-2">
                 {[...Array(totalPages)].map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => { setCurrentPage(i + 1); window.scrollTo({ top: 500, behavior: 'smooth' }); }}
-                    className={`w-12 h-12 rounded-2xl font-serif text-lg transition-all ${currentPage === i + 1 ? "bg-[#e11d48] text-white shadow-lg" : "bg-white text-gray-400 hover:text-[#92104d] border border-gray-100"}`}
+                    onClick={() => { setCurrentPage(i + 1); window.scrollTo({ top: 300, behavior: 'smooth' }); }}
+                    className={`w-9 h-9 rounded-xl text-xs transition-all ${currentPage === i + 1 ? "bg-[#e11d48] text-white shadow-md" : "bg-white text-gray-400 border border-gray-100"}`}
                   >
                     {i + 1}
                   </button>
